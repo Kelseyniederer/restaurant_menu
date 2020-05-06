@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Menu {
 
-    private Date lastUpdated;
+    private static Date lastUpdated = new Date();
     private static ArrayList<MenuItem> menuItems = new ArrayList<>();
 
     public void setLastUpdated(Date lastUpdated) {
@@ -30,9 +30,25 @@ public class Menu {
 
     }
 
+    public static void printMenuItem(MenuItem anItem){
+        System.out.println(anItem.toString());
+    }
+
     public static void printMenu(){
         for (MenuItem item : menuItems){
             System.out.println(item.toString());
+        }
+        System.out.println(lastUpdated);
+
+
+    }
+
+    public static void isEqual(MenuItem item1, MenuItem item2){
+        if (item1.equals(item2)){
+            System.out.println("These menu items are equal");
+        }
+        else{
+            System.out.println("These menu items are not equal");
         }
     }
 

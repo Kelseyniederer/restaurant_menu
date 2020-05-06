@@ -56,14 +56,19 @@ public class MenuItem {
         return creationDate;
     }
 
-//    public String newItem(){
-//        Date newTest = new Date();
-//        if ();
-//    }
+    public void newItem(){
+        Date newTest = new Date();
+//        if  (){
+        System.out.println(creationDate.getTime());
+//        }
+//        else{
+//            newItem = "She's been here a while";
+//        }
+    }
 
     public String toString(){
 
-        return "\n***** \nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nCategory: " + category ;
+        return "\n***** \nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nCategory: " + category + "\nDate Created: " + creationDate + "\n" + newItem;
     }
     public boolean equals(MenuItem toBeCompared){
         if (toBeCompared == this) {
