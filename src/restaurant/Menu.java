@@ -38,7 +38,7 @@ public class Menu {
         for (MenuItem item : menuItems){
             System.out.println(item.toString());
         }
-        System.out.println(lastUpdated);
+        System.out.println("This menu was last updated on: " + lastUpdated);
 
 
     }

@@ -1,7 +1,5 @@
 package restaurant;
-import javax.print.attribute.standard.DateTimeAtCreation;
 import java.util.Date;
-import java.util.Calendar;
 
 public class MenuItem {
     private String name;
@@ -9,7 +7,7 @@ public class MenuItem {
     private String description;
     private String category;
     private String newItem;
-    private Date creationDate = new Date();
+    private Date creationDate;
 
 
     public MenuItem (String name, Double price, String description, String category){
@@ -36,10 +34,6 @@ public class MenuItem {
         return category;
     }
 
-//    public void setName(String name) {
-//        name = name;
-//    }
-
     public void setPrice(double price) {
         this.price = price;
     }
@@ -53,22 +47,26 @@ public class MenuItem {
     }
 
     public Date setCreationDate() {
-        return creationDate;
+        creationDate = new Date();
+        return  creationDate;
     }
 
-    public void newItem(){
-        Date newTest = new Date();
-//        if  (){
-        System.out.println(creationDate.getTime());
-//        }
-//        else{
-//            newItem = "She's been here a while";
-//        }
+    public String isNew() {
+        Date date = new Date();
+        int checkDate = date.getMonth() + 1;
+        int creationMonth = creationDate.getMonth();
+        if (checkDate - creationMonth > 0){
+            newItem = "This is a new item";
+        }
+        else {
+            newItem = "She's been here a while";
+        }
+        return newItem;
     }
 
     public String toString(){
 
-        return "\n***** \nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nCategory: " + category + "\nDate Created: " + creationDate + "\n" + newItem;
+        return "\n***** \nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nCategory: " + category + "\nDate Created: " + setCreationDate() + "\n" + isNew();
     }
     public boolean equals(MenuItem toBeCompared){
         if (toBeCompared == this) {
